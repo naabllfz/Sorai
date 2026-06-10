@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sorai Coffee — Dashboard UMKM</title>
+</head>
+<body>
+
+<!-- ═══ NAVIGASI ═══ -->
+<nav>
+  <div>
+    <strong>☕ Sorai Coffee</strong> | Dashboard UMKM Palu
+  </div>
+  <div>
+    <a href="#" onclick="showPage('beranda');return false">Beranda</a> |
+    <a href="#" onclick="showPage('lokasi');return false">Lokasi</a> |
+    <a href="#" onclick="showPage('insight');return false">Insight</a> |
+    <a href="#" onclick="showPage('pemesanan');return false">
+      Pemesanan <span id="cart-count" class="cart-badge" style="display: none;">0</span>
+    </a>
+  </div>
+</nav>
+ 
+<hr>
+
+<div id="page-beranda" class="page">
+  <h1>☕ SORAI COFFEE</h1>
+  <p><strong>Kopi Keliling · Palu, Sulawesi Tengah</strong></p>
+  <p><em>"Belum hidup kalau belum ngopi"</em></p>
+  <p>Sorai berawal dari kisah pribadi owner yang telah menerima berbagai kenyataan hidup dan menjadikannya inspirasi untuk terus melangkah.</p>
+  
+  <hr />
+  
+  <h2>📞 Kontak Kami</h2>
+  <p>📸 Instagram: <strong>@kopisorai_palu</strong></p>
+  <p>💬 WhatsApp: <strong>0851-4553-3880</strong></p>
+  
+  <hr />
+  
+  <h2>🏆 Best Seller</h2>
+  <div id="best-seller-container"></div>
+  
+  <hr />
+  
+  <h2>📋 Menu Lengkap</h2>
+  <div id="menu-table-container"></div>
+  
+  <hr />
+  <footer>
+    <p>© 2025 Sorai Coffee · Palu, Sulawesi Tengah</p>
+  </footer>
+</div>
+
+<script src="assets/js/data.js"></script>
+<script src="assets/js/lokasi.js"></script>
+<script src="assets/js/insight.js"></script>
+<script src="assets/js/order.js"></script>
+<script src="assets/js/main.js"></script>
+
+</body>
+</html>
