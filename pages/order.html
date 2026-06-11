@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kopi .Sorai | Belum Hidup Kalau Belum Ngopi</title>
+    <title>Kopi .Sorai | Pesan Sekarang</title>
     
-    <link rel="preconnect" href="[https://fonts.googleapis.com](https://fonts.googleapis.com)">
-    <link rel="preconnect" href="[https://fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-    <link href="[https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap](https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap)" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/assets/css/style.css">
     <link rel="icon" href="/images/favicon-fromIG.jpg">
 </head>
@@ -17,9 +17,8 @@
         <div class="container">
             <nav>
                 <a href="/index.html">
-                    <img src="/images/logo-sorai.png" alt="" width= "100px">
+                    <img src="/images/logo-sorai.png" alt="Logo Sorai" width="100px">
                 </a>
-
                 <ul class="nav-links" id="nav">
                     <li><a href="/index.html">Beranda</a></li>
                     <li><a href="lokasi.html">Lokasi</a></li>
@@ -30,29 +29,95 @@
         </div>
     </header>
 
+    <main>
+        <div class="container">
+            <div class="section-header">
+                <h1>🛒 Pemesanan Sorai Coffee</h1>
+                <p>📞 0851-4553-3880 | 📸 @kopisorai_palu</p>
+            </div>
+
+            <div class="order-layout">
+                <!-- Kolom Kiri: Daftar Menu -->
+                <div class="menu-list-col">
+                    <h2 style="margin-bottom: 24px;">📋 Pilih Menu</h2>
+                    <div id="menu-list-container"></div>
+                </div>
+
+                <!-- Kolom Kanan: Keranjang Belanja -->
+                <div class="cart-col">
+                    <h2>🛍️ Keranjang Belanja</h2>
+                    
+                    <div id="cart-container">
+                        <div id="cart-empty" class="cart-empty">
+                            <p>✨ Keranjang masih kosong</p>
+                            <p>Pilih menu di samping yuk!</p>
+                        </div>
+                        <div id="cart-items" class="cart-items" style="display: none;"></div>
+                    </div>
+                    
+                    <div class="cart-total">
+                        <strong>Total:</strong> Rp <span id="cart-total">0</span>
+                    </div>
+                    
+                    <div class="cart-actions">
+                        <button class="button" onclick="clearCart()" style="background: transparent;">🗑️ Kosongkan Keranjang</button>
+                    </div>
+                    
+                    <hr style="margin: 20px 0;">
+                    
+                    <h3>📝 Data Pemesan</h3>
+                    <div class="form-group">
+                        <label>Nama Lengkap</label>
+                        <input type="text" id="customer-name" class="form-input" placeholder="Nama kamu">
+                    </div>
+                    <div class="form-group">
+                        <label>Nomor WhatsApp</label>
+                        <input type="tel" id="customer-wa" class="form-input" placeholder="0851-xxxx-xxxx">
+                    </div>
+                    <div class="form-group">
+                        <label>Tanggal Pemesanan</label>
+                        <input type="date" id="order-date" class="form-input">
+                    </div>
+                    <div class="form-group">
+                        <label>Lokasi Pengambilan</label>
+                        <select id="order-location" class="form-input">
+                            <option value="">Pilih lokasi...</option>
+                            <option>Depan SMADA (Siang 10:00-13:00)</option>
+                            <option>Universitas Tadulako (Siang 13:00-17:00)</option>
+                            <option>Sekitar Kantor Wali Kota (Malam 18:00-23:00)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Catatan Tambahan</label>
+                        <textarea id="order-notes" class="form-input" rows="2" placeholder="Contoh: kurang manis, pake es sedikit..."></textarea>
+                    </div>
+                    
+                    <button class="button" onclick="submitOrder()" style="width: 100%; margin-top: 16px;">✅ Pesan Sekarang</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
     <!-- FOOTER -->
     <footer>
         <div class="container">
             <div class="footer-grid">
                 <div>
                     <a href="/index.html">
-                        <img src="/images/logo-sorai.png" alt="" width="100px">
+                        <img src="/images/logo-sorai.png" alt="Logo Sorai" width="100px">
                     </a>
                     <p class="footer-desc">Menemani harimu dengan secangkir kopi lokal pilihan. Diracik untuk menemani obrolan santai, perjalanan panjang, dan setiap langkah kecil dalam proses bertumbuh.</p>
                     <p class="footer-desc">#ngopidisoraiaja #belumhidupkalaubelumngopi</p>
-                    
                 </div>
-
                 <div>
                     <h4 class="footer-title">Navigasi</h4>
                     <ul class="footer-links">
                         <li><a href="/index.html">Beranda</a></li>
                         <li><a href="lokasi.html">Lokasi</a></li>
                         <li><a href="order.html">Pesan</a></li>
-                        <li><a href="insight.html">Info</a></li>
+                        <li><a href="insight.html">Insight</a></li>
                     </ul>
                 </div>
-
                 <div>
                     <h4 class="footer-title">Kontak Kami</h4>
                     <ul class="footer-links">
@@ -60,12 +125,15 @@
                         <li>WhatsApp: <a href="https://wa.me/6285145533880">0851-4553-3880</a></li>
                     </ul>
                 </div>
-
             </div>
             <div class="footer-bottom">
                 &copy; 2026 Kopi .Sorai
             </div>
         </div>
     </footer>
+
+    <script src="/assets/js/data.js"></script>
+    <script src="/assets/js/order.js"></script>
+    <script src="/assets/js/main.js"></script>
 </body>
 </html>
