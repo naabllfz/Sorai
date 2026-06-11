@@ -29,11 +29,11 @@ const menuData = [
 // DATA LOKASI DRIVER
 const lokasiData={
     siang:[
-        {name:"Depan SMADA", address:"SMA Negeri 2 Palu", time:"10.00-15.00", pros: ["Ramai siswa setiap hari sekolah", "Harga terjangkau sesuai kantong pelajar", "Lokasi mudah dijangkau dari jalan utama"]},
-        {name:"Taman UNTAD", address:"Universitas Tadulako", time:"10.00-17.00", pros: ["Basis mahasiswa besar dan aktif", "Potensi pembelian berulang dari pelangan tetap", "Aktivitas kampus padat di jam siang sampai sore"]}   
+        {name:"Depan SMADA", icon: "🏫",address:"SMA Negeri 2 Palu", time:"10.00-15.00", pros: ["Ramai siswa setiap hari sekolah", "Harga terjangkau sesuai kantong pelajar", "Lokasi mudah dijangkau dari jalan utama"]},
+        {name:"Taman UNTAD", icon:"🎓", address:"Universitas Tadulako", time:"10.00-17.00", pros: ["Basis mahasiswa besar dan aktif", "Potensi pembelian berulang dari pelangan tetap", "Aktivitas kampus padat di jam siang sampai sore"]}   
     ],
     malam:[
-        {name:"Sekitaran Kantor Wali Kota", address:"Taman Vatulemo, Kantor Wali Kota Palu", pros:["Pusat kota dengan lalu lintas tinggi", "Mudah ditemukan oleh pelanggan baru", "Area strategis yang dikenal masyarakat luas"]}
+        {name:"Sekitaran Kantor Wali Kota",icon:"🌃", address:"Taman Vatulemo, Kantor Wali Kota Palu", time:"17.00-23.00",pros:["Pusat kota dengan lalu lintas tinggi", "Mudah ditemukan oleh pelanggan baru", "Area strategis yang dikenal masyarakat luas"]}
     ]
 };
 
@@ -49,17 +49,17 @@ const challengesData = [
 
 // DATA FAKTOR PENJUALAN
 const faktorSiangData = [
-  { name: "Lokasi", desc: "Titik jual di dekat sekolah & kampus meningkatkan kunjungan secara konsisten." },
-  { name: "Cuaca", desc: "Cuaca panas siang hari mendorong permintaan minuman dingin lebih tinggi." },
-  { name: "Harga", desc: "Rentang harga Rp 10–15 ribu sangat cocok untuk segmen pelajar dan mahasiswa." },
-  { name: "Kompetitor", desc: "Persaingan di sekitar kawasan kampus semakin ketat dari usaha kopi sejenis." }
+  { name: "Lokasi", icon: "📍",desc: "Titik jual di dekat sekolah & kampus meningkatkan kunjungan secara konsisten." },
+  { name: "Cuaca", icon: "☀️",desc: "Cuaca panas siang hari mendorong permintaan minuman dingin lebih tinggi." },
+  { name: "Harga", icon: "💰" ,desc: "Rentang harga Rp 10–15 ribu sangat cocok untuk segmen pelajar dan mahasiswa." },
+  { name: "Kompetitor", icon: "⚔️" ,desc: "Persaingan di sekitar kawasan kampus semakin ketat dari usaha kopi sejenis." }
 ];
 
 const faktorMalamData = [
-  { name: "Cuaca", desc: "Hujan malam hari secara langsung menurunkan jumlah pengunjung dan penjualan." },
-  { name: "Regulasi", desc: "Perizinan lokasi berjualan menjadi kendala tersendiri di beberapa titik area kota." },
-  { name: "Kompetitor", desc: "Usaha kopi serupa semakin banyak bermunculan di area yang sama pada malam hari." },
-  { name: "Lokasi", desc: "Konsistensi lokasi sulit dijaga karena bersifat keliling tanpa titik tetap." }
+    { name: "Cuaca", desc: "Hujan malam hari secara langsung menurunkan jumlah pengunjung dan penjualan.", icon: "🌧️" },
+    { name: "Regulasi", desc: "Perizinan lokasi berjualan menjadi kendala tersendiri di beberapa titik area kota.", icon: "📋" },
+    { name: "Kompetitor", desc: "Usaha kopi serupa semakin banyak bermunculan di area yang sama pada malam hari.", icon: "⚔️" },
+    { name: "Lokasi", desc: "Konsistensi lokasi sulit dijaga karena bersifat keliling tanpa titik tetap.", icon: "📍" }
 ];
 
 // Export ke global
