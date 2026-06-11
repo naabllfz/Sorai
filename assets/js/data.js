@@ -29,11 +29,11 @@ const menuData = [
 // DATA LOKASI DRIVER
 const lokasiData={
     siang:[
-        {name:"Depan SMADA", icon: "🏫",address:"SMA Negeri 2 Palu", time:"10.00-15.00", pros: ["Ramai siswa setiap hari sekolah", "Harga terjangkau sesuai kantong pelajar", "Lokasi mudah dijangkau dari jalan utama"]},
-        {name:"Taman UNTAD", icon:"🎓", address:"Universitas Tadulako", time:"10.00-17.00", pros: ["Basis mahasiswa besar dan aktif", "Potensi pembelian berulang dari pelangan tetap", "Aktivitas kampus padat di jam siang sampai sore"]}   
+        {name:"Depan SMADA", icon: "/images/SMADA.jpg", address:"SMA Negeri 2 Palu", map:"https://maps.app.goo.gl/xG2tSJjg3dwpv8JG7", time:"10.00 - 15.00", pros: ["Ramai siswa setiap hari sekolah", "Harga terjangkau sesuai kantong pelajar", "Lokasi mudah dijangkau dari jalan utama"]},
+        {name:"Taman UNTAD", icon:"/images/TAMAN-UNTAD.webp", address:"Universitas Tadulako", map: "https://maps.app.goo.gl/vGwYjHB7yL2vGtiW8", time:"10.00 - 17.00", pros: ["Basis mahasiswa besar dan aktif", "Potensi pembelian berulang dari pelangan tetap", "Aktivitas kampus padat di jam siang sampai sore"]}   
     ],
     malam:[
-        {name:"Sekitaran Kantor Wali Kota",icon:"🌃", address:"Taman Vatulemo, Kantor Wali Kota Palu", time:"17.00-23.00",pros:["Pusat kota dengan lalu lintas tinggi", "Mudah ditemukan oleh pelanggan baru", "Area strategis yang dikenal masyarakat luas"]}
+        {name:"Sekitaran Kantor Wali Kota",icon:"/images/From-Sorai-IG.png", address:"Street Food Baruga 2", map:"https://maps.app.goo.gl/LmvTJqN4hzCwHzR4A", time:"14.30 - 00.00", pros:["Pusat kota dengan lalu lintas tinggi", "Mudah ditemukan oleh pelanggan baru", "Area strategis yang dikenal masyarakat luas"]}
     ]
 };
 

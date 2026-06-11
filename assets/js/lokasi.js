@@ -8,13 +8,15 @@ function renderLokasiSiang() {
     let html = '';
     window.lokasiData.siang.forEach(loc => {
         html += `
-            <div class="location-card">
-                <div class="location-icon">${loc.icon}</div>
+            <div class="lokasi-card">
+                <img src="${loc.icon}" alt="${loc.name}" class="lokasi-icon">
                 <h3>${loc.name}</h3>
-                <div class="location-time">⏱ ${loc.time}</div>
-                <div class="location-address">📍 ${loc.address}</div>
-                <div class="location-pros">
-                    <h4>✓ Kelebihan Lokasi:</h4>
+                <div class="lokasi-time">⏱ ${loc.time}</div>
+                <div class="lokasi-address">
+                📍 <a href="${loc.map}" target="_blank">${loc.address}</a>
+                </div>
+                <div class="lokasi-pros">
+                    <h4>Kelebihan Lokasi:</h4>
                     <ul>
                         ${loc.pros.map(pro => `<li>${pro}</li>`).join('')}
                     </ul>
@@ -33,13 +35,15 @@ function renderLokasiMalam() {
     let html = '';
     window.lokasiData.malam.forEach(loc => {
         html += `
-            <div class="location-card">
-                <div class="location-icon">${loc.icon}</div>
+            <div class="lokasi-card">
+                <img src="${loc.icon}" alt="${loc.name}" class="lokasi-icon">
                 <h3>${loc.name}</h3>
-                <div class="location-time">⏱ ${loc.time}</div>
-                <div class="location-address">📍 ${loc.address}</div>
-                <div class="location-pros">
-                    <h4>✓ Kelebihan Lokasi:</h4>
+                <div class="lokasi-time">⏱ ${loc.time}</div>
+                <div class="lokasi-address">
+                📍 <a href="${loc.map}" target="_blank">${loc.address}</a>
+                </div>
+                <div class="lokasi-pros">
+                    <h4>Kelebihan Lokasi:</h4>
                     <ul>
                         ${loc.pros.map(pro => `<li>${pro}</li>`).join('')}
                     </ul>
@@ -92,7 +96,7 @@ function renderFaktorMalam() {
 function switchSesi(sesi) {
     const siangPanel = document.getElementById('siang-panel');
     const malamPanel = document.getElementById('malam-panel');
-    const tabs = document.querySelectorAll('.tab-btn');
+    const tabs = document.querySelectorAll('.lokasi-button');
     
     if (sesi === 'siang') {
         if (siangPanel) siangPanel.style.display = 'block';
