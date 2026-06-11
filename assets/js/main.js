@@ -22,7 +22,13 @@ function showPage(pageId) {
     });
     
     // Cari link yang sesuai dengan halaman aktif
-    const activeNav = document.querySelector(`.nav-links a[href*="${pageId === 'beranda' ? 'index' : pageId}"]`);
+    let targetHref = '';
+    if (pageId === 'beranda') targetHref = '/index.html';
+    else if (pageId === 'lokasi') targetHref = 'lokasi.html';
+    else if (pageId === 'order') targetHref = 'order.html';
+    else if (pageId === 'insight') targetHref = 'insight.html';
+    
+    const activeNav = document.querySelector(`.nav-links a[href="${targetHref}"]`);
     if (activeNav) activeNav.classList.add('active');
     
     // Inisialisasi konten sesuai halaman
@@ -62,7 +68,13 @@ function initPageFromURL() {
     const navLinks = document.querySelectorAll('.nav-links a');
     navLinks.forEach(link => {
         link.classList.remove('active');
-        if (link.getAttribute('href') === `${currentPage === 'beranda' ? 'index.html' : currentPage + '.html'}`) {
+        let targetHref = '';
+        if (currentPage === 'beranda') targetHref = '/index.html';
+        else if (currentPage === 'lokasi') targetHref = 'lokasi.html';
+        else if (currentPage === 'order') targetHref = 'order.html';
+        else if (currentPage === 'insight') targetHref = 'insight.html';
+        
+        if (link.getAttribute('href') === targetHref) {
             link.classList.add('active');
         }
     });
@@ -79,10 +91,8 @@ function initPageFromURL() {
 
 // Jalankan saat halaman dimuat
 document.addEventListener('DOMContentLoaded', function() {
-    // Inisialisasi berdasarkan URL (karena multiple page)
     initPageFromURL();
     
-    // Load cart badge di navbar (jika ada)
     if (typeof updateCartBadges === 'function') {
         setTimeout(updateCartBadges, 100);
     }

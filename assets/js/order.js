@@ -1,4 +1,4 @@
-// LOGIKA ORDER & KERANJANG BELANJA
+// LOGIKA PEMESANAN & KERANJANG BELANJA
 
 let cart = [];
 
@@ -25,7 +25,6 @@ function saveCartToStorage() {
 function updateCartBadges() {
     const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
     
-    // Update badge di navbar (jika ada)
     const navBadge = document.getElementById('cart-badge-nav');
     if (navBadge) {
         if (totalItems > 0) {
@@ -70,7 +69,7 @@ function renderMenuList() {
             html += `
                 <div class="menu-item" data-id="${menu.id}">
                     <div style="flex: 1;">
-                        <span class="menu-name">${menu.name} ${menu.bestseller ? '⭐' : ''}</span>
+                        <span class="menu-name">${menu.name} ${menu.bestSeller ? '⭐' : ''}</span>
                         <span class="menu-desc">${menu.description}</span>
                     </div>
                     <div class="menu-dots"></div>
