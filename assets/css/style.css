@@ -572,47 +572,413 @@ footer {
 }
 
 
-/* STYLE INSIGHT */
+/* ============================================
+   ORDER PAGE - SHOPPING CART STYLES
+   ============================================ */
 
-/* Tantangan Items */
-.tantangan-item {
+/* Layout Utama */
+.order-layout {
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.menu-list-col {
+    flex: 2;
+    min-width: 280px;
+}
+
+.cart-col {
+    flex: 1.2;
+    min-width: 320px;
     background: var(--white);
-    padding: 20px;
-    border-radius: 16px;
-    transition: all 0.3s ease;
+    padding: 1.5rem;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 100px;
+    height: fit-content;
     border: 1px solid rgba(186, 182, 89, 0.2);
 }
 
-.tantangan-item:hover {
-    transform: translateY(-5px);
+.cart-col h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-main);
+    border-bottom: 2px solid var(--warna-button);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+/* Daftar Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25rem;
+}
+
+.menu-category {
+    margin-bottom: 2rem;
+}
+
+.menu-category h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    color: var(--warna-button);
+    border-left: 3px solid var(--warna-button);
+    padding-left: 0.75rem;
+}
+
+.menu-item {
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(186, 182, 89, 0.15);
+    position: relative;
+}
+
+.menu-item:hover {
+    transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
+    border-color: var(--warna-button);
+}
+
+.menu-item h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.1rem;
+    margin-bottom: 0.25rem;
+    color: var(--text-main);
+}
+
+.menu-desc {
+    font-size: 0.75rem;
+    color: #666;
+    margin: 0.5rem 0;
+    line-height: 1.4;
+}
+
+.menu-price {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--warna-button);
+    margin: 0.75rem 0;
+}
+
+.btn-add-to-cart {
+    background: var(--warna-button);
+    color: var(--white);
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: var(--radius-button);
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+}
+
+.btn-add-to-cart:hover {
+    background: #8a8842;
+    transform: scale(1.02);
+}
+
+/* Keranjang Belanja */
+.cart-empty {
+    text-align: center;
+    padding: 2rem 1rem;
+    color: #999;
+}
+
+.cart-empty p:first-child {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.cart-items {
+    max-height: 400px;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+}
+
+.cart-items::-webkit-scrollbar {
+    width: 5px;
+}
+
+.cart-items::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.cart-items::-webkit-scrollbar-thumb {
+    background: var(--warna-button);
+    border-radius: 10px;
+}
+
+.cart-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(186, 182, 89, 0.2);
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+.cart-item-info {
+    flex: 2;
+    min-width: 100px;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.cart-item-price {
+    font-size: 0.7rem;
+    color: #777;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.cart-qty-btn {
+    width: 28px;
+    height: 28px;
+    background: #f0f0f0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.2s ease;
+}
+
+.cart-qty-btn:hover {
+    background: var(--warna-button);
+    color: white;
+}
+
+.cart-remove {
+    background: #e74c3c;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.7rem;
+    transition: all 0.2s ease;
+}
+
+.cart-remove:hover {
+    background: #c0392b;
+}
+
+.cart-item-subtotal {
+    font-weight: 600;
+    min-width: 80px;
+    text-align: right;
+    font-size: 0.85rem;
+    color: var(--warna-button);
+}
+
+.cart-total {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 2px solid var(--warna-button);
+    text-align: right;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.cart-actions {
+    margin: 1rem 0;
+}
+
+/* Form Pemesanan */
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+    font-size: 0.85rem;
+    color: var(--text-main);
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: var(--white);
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--warna-button);
+    box-shadow: 0 0 0 3px rgba(196, 154, 108, 0.2);
+}
+
+select.form-input {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%232c1810' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    cursor: pointer;
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.btn-order {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 0.875rem;
+    font-size: 1rem;
+}
+
+/* ============================================
+   INSIGHT PAGE - BUSINESS INTELLIGENCE STYLES
+   ============================================ */
+
+/* Card Umum Insight */
+.insight-card {
+    background: var(--white);
+    border-radius: var(--radius-card);
+    padding: 1.8rem;
+    margin-bottom: 2rem;
+    box-shadow: var(--shadow-soft);
+    transition: all 0.3s ease;
+    border: 1px solid rgba(186, 182, 89, 0.1);
+}
+
+.insight-card:hover {
+    box-shadow: var(--shadow-hover);
+}
+
+.insight-card h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    margin-bottom: 1.25rem;
+    color: var(--text-main);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.insight-card.highlight {
+    background: linear-gradient(135deg, var(--white), rgba(196, 154, 108, 0.05));
+    border-left: 4px solid var(--warna-button);
+}
+
+/* Ringkasan Cepat (4 Card) */
+.insight-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.25rem;
+    margin-bottom: 2.5rem;
+}
+
+.stat-card {
+    text-align: center;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, #2c1810, #4a2c1a);
+    border-radius: 20px;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-5px);
+}
+
+.stat-card .stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.stat-card .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+}
+
+.stat-card .stat-label {
+    font-size: 0.75rem;
+    opacity: 0.8;
+    margin-top: 0.25rem;
+}
+
+/* Tantangan Grid */
+.tantangan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.tantangan-item {
+    background: rgba(196, 154, 108, 0.05);
+    padding: 1.25rem;
+    border-radius: 16px;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(186, 182, 89, 0.15);
+}
+
+.tantangan-item:hover {
+    transform: translateY(-3px);
+    background: rgba(196, 154, 108, 0.1);
+    border-color: var(--warna-button);
 }
 
 .tantangan-header {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 12px;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
     flex-wrap: wrap;
 }
 
 .tantangan-icon {
-    font-size: 24px;
+    font-size: 1.5rem;
+}
+
+.tantangan-item strong {
+    font-size: 1rem;
+    color: var(--text-main);
+    flex: 1;
 }
 
 .impact-badge {
-    padding: 4px 12px;
+    padding: 0.25rem 0.75rem;
     border-radius: 20px;
-    font-size: 11px;
+    font-size: 0.7rem;
     color: white;
-    margin-left: auto;
+    font-weight: 500;
 }
 
 .impact-bar {
     height: 6px;
-    background: #eee;
+    background: #e0e0e0;
     border-radius: 3px;
-    margin-top: 12px;
+    margin-top: 0.75rem;
     overflow: hidden;
 }
 
@@ -622,46 +988,51 @@ footer {
     transition: width 0.5s ease;
 }
 
-/* Insight Stats */
-.insight-stat {
-    text-align: center;
-    padding: 20px;
-    background: var(--white);
-    border-radius: 16px;
-    transition: all 0.3s ease;
+/* Minat Produk Styles */
+.minat-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
 
-.insight-stat:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-hover);
+.best-seller-card-insight {
+    background: linear-gradient(135deg, #2c1810, #4a2c1a);
+    padding: 1.5rem;
+    border-radius: 20px;
+    color: white;
 }
 
-.stat-icon {
-    font-size: 36px;
-    margin-bottom: 10px;
+.best-seller-card-insight h3 {
+    color: var(--warna-button);
+    margin-bottom: 1rem;
 }
 
-.stat-value {
-    font-size: 32px;
-    font-weight: 700;
-    font-family: 'Playfair Display', serif;
+.best-seller-item {
+    background: rgba(255,255,255,0.1);
+    border-radius: 12px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+}
+
+.best-seller-item .item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.best-seller-item .item-name {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.best-seller-item .item-price {
     color: var(--warna-button);
 }
 
-.stat-label {
-    font-weight: 600;
-    margin: 5px 0;
-}
-
-.stat-desc {
-    font-size: 12px;
-    color: #666;
-}
-
-/* Popularity Bar */
 .popularity-bar {
     height: 8px;
-    background: #eee;
+    background: rgba(255,255,255,0.2);
     border-radius: 4px;
     overflow: hidden;
 }
@@ -672,77 +1043,341 @@ footer {
     transition: width 0.5s ease;
 }
 
-/* Rekomendasi Grid */
-.rekomendasi-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+.low-interest-card {
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: 20px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
-.rekomendasi-card {
+.low-interest-content {
+    background: white;
+    border-radius: 12px;
+    padding: 1rem;
+}
+
+/* Insight Stats */
+.insight-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.insight-stat {
+    text-align: center;
+    padding: 1.25rem;
     background: var(--white);
     border-radius: 16px;
-    padding: 20px;
     transition: all 0.3s ease;
-    border: 1px solid rgba(186, 182, 89, 0.2);
+    border: 1px solid rgba(186, 182, 89, 0.15);
+}
+
+.insight-stat:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+}
+
+.insight-stat .stat-icon {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+}
+
+.insight-stat .stat-value {
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Playfair Display', serif;
+    color: var(--warna-button);
+}
+
+.insight-stat .stat-label {
+    font-weight: 600;
+    font-size: 0.85rem;
+    margin: 0.25rem 0;
+}
+
+.insight-stat .stat-desc {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+/* Monitoring Bahan Baku */
+.bahanbaku-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.25rem;
+}
+
+.bahanbaku-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid rgba(186, 182, 89, 0.15);
+    transition: all 0.3s ease;
+}
+
+.bahanbaku-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-hover);
+    border-color: var(--warna-button);
+}
+
+.bahanbaku-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap;
+}
+
+.bahanbaku-icon {
+    font-size: 1.3rem;
+}
+
+.bahanbaku-header strong {
+    flex: 1;
+    font-size: 1rem;
+}
+
+.trend-badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    color: white;
+}
+
+.bahanbaku-price {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(186, 182, 89, 0.2);
+}
+
+.bahanbaku-price div:first-child .bahanbaku-price div:first-child div {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.bahanbaku-price div:first-child div:last-child {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.bahanbaku-stock {
+    margin-top: 0.75rem;
+}
+
+.stock-status {
+    font-size: 0.7rem;
+    font-weight: 500;
+}
+
+.stock-status.safe { color: #27ae60; }
+.stock-status.warning { color: #f39c12; }
+.stock-status.danger { color: #e74c3c; }
+
+.stock-bar {
+    height: 6px;
+    background: #e0e0e0;
+    border-radius: 3px;
+    margin: 0.5rem 0;
+    overflow: hidden;
+}
+
+.stock-fill {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.3s ease;
+}
+
+.update-stock-btn {
+    background: transparent;
+    border: 1px solid var(--warna-button);
+    padding: 0.4rem 0.8rem;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    transition: all 0.3s ease;
+    color: var(--warna-button);
+}
+
+.update-stock-btn:hover {
+    background: var(--warna-button);
+    color: white;
+}
+
+/* Keputusan Harga */
+.price-decision-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+.analysis-card, .decision-card {
+    background: var(--white);
+    border-radius: 16px;
+    padding: 1.25rem;
+    border: 1px solid rgba(186, 182, 89, 0.15);
+}
+
+.analysis-card h3, .decision-card h3 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.price-decision-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: #f9f9f9;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.price-decision-card:hover {
+    background: rgba(196, 154, 108, 0.1);
+    transform: translateX(5px);
+}
+
+.price-decision-card.active {
+    border-color: var(--warna-button);
+    background: rgba(196, 154, 108, 0.1);
+}
+
+.decision-icon {
+    font-size: 1.5rem;
+}
+
+.decision-content {
+    flex: 1;
+}
+
+.decision-content strong {
+    display: block;
+    margin-bottom: 0.25rem;
+}
+
+.decision-content p {
+    font-size: 0.75rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.decision-tag {
+    font-size: 0.65rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    background: #e0e0e0;
+}
+
+.decision-tag.recommended {
+    background: var(--warna-button);
+    color: white;
+}
+
+.price-decision-status {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(196, 154, 108, 0.1);
+    border-radius: 12px;
+    font-size: 0.8rem;
+}
+
+/* Menu Impact Grid */
+.menu-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.menu-impact-card {
+    background: rgba(196, 154, 108, 0.05);
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.menu-impact-card:hover {
+    transform: translateY(-2px);
+    background: rgba(196, 154, 108, 0.1);
+}
+
+.menu-impact-name {
+    font-weight: bold;
+    margin-bottom: 0.25rem;
+}
+
+.menu-impact-price {
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+}
+
+.menu-impact-prices {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.65rem;
+    flex-wrap: wrap;
+}
+
+.menu-impact-prices span {
+    background: white;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    color: var(--warna-button);
+}
+
+/* Rekomendasi Card */
+.rekomendasi-card {
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: 16px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(186, 182, 89, 0.15);
 }
 
 .rekomendasi-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-hover);
+    border-color: var(--warna-button);
 }
 
-.rekomendasi-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-    gap: 8px;
+.rekomendasi-icon {
+    font-size: 2rem;
+    margin-bottom: 0.75rem;
 }
 
-.rekomendasi-title {
-    font-weight: 700;
-    font-size: 16px;
+.rekomendasi-card h4 {
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 0.5rem;
 }
 
-.rekomendasi-desc {
-    font-size: 13px;
+.rekomendasi-card p {
+    font-size: 0.75rem;
     color: #666;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.urgency-badge {
-    padding: 4px 10px;
-    border-radius: 20px;
-    font-size: 11px;
-    font-weight: 600;
-}
-
-.urgency-badge.high {
-    background: #e74c3c;
-    color: white;
-}
-
-.urgency-badge.medium {
-    background: #f39c12;
-    color: white;
-}
-
-.urgency-badge.low {
-    background: #27ae60;
-    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.5;
 }
 
 .action-btn {
     background: transparent;
     border: 1px solid var(--warna-button);
-    padding: 8px 16px;
-    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    border-radius: 25px;
     color: var(--warna-button);
     cursor: pointer;
-    font-size: 12px;
+    font-size: 0.75rem;
     font-weight: 500;
     transition: all 0.3s ease;
 }
@@ -753,14 +1388,22 @@ footer {
 }
 
 /* Filter Buttons */
+.filter-buttons {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
 .filter-btn {
     background: transparent;
     border: 1px solid var(--border);
-    padding: 8px 20px;
+    padding: 0.5rem 1.25rem;
     border-radius: 30px;
     cursor: pointer;
     font-family: 'Poppins', sans-serif;
     transition: all 0.3s ease;
+    font-size: 0.8rem;
 }
 
 .filter-btn:hover {
@@ -774,216 +1417,179 @@ footer {
     color: white;
 }
 
-/* Progress Bar */
-.progress-bar {
-    height: 10px;
-    background: #eee;
-    border-radius: 5px;
-    overflow: hidden;
+/* RESPONSIVE INSIGHT & ORDER */
+
+@media (max-width: 992px) {
+    .order-layout {
+        flex-direction: column;
+    }
+    
+    .cart-col {
+        position: static;
+        top: auto;
+    }
+    
+    .minat-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+    
+    .price-decision-container {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .insight-stats {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
 }
 
-.progress-fill {
-    height: 100%;
-    border-radius: 5px;
-    transition: width 0.5s ease;
+@media (max-width: 768px) {
+    .menu-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-col {
+        min-width: auto;
+    }
+    
+    .bahanbaku-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .tantangan-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .menu-impact-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .insight-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .insight-card {
+        padding: 1.25rem;
+    }
+    
+    .insight-card h2 {
+        font-size: 1.25rem;
+    }
 }
 
-/* Insight Card Highlight */
-.insight-card.highlight {
-    border-left: 4px solid var(--warna-button);
-    background: linear-gradient(135deg, var(--white), rgba(196, 154, 108, 0.05));
+@media (max-width: 480px) {
+    .menu-impact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .insight-stats {
+        grid-template-columns: 1fr;
+    }
+    
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .cart-item-subtotal {
+        text-align: left;
+        width: 100%;
+    }
+    
+    .cart-item-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .filter-buttons {
+        justify-content: center;
+    }
+    
+    .price-decision-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .decision-icon {
+        font-size: 2rem;
+    }
 }
 
-/* MONITORING BAHAN BAKU & KEPUTUSAN HARGA */
+/* ============================================
+   ANIMATIONS
+   ============================================ */
 
-/* Bahan Baku Grid */
-.bahanbaku-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
-.bahanbaku-card {
-    background: var(--white);
-    border-radius: 16px;
-    padding: 18px;
-    border: 1px solid rgba(186, 182, 89, 0.2);
-    transition: all 0.3s ease;
+.menu-item, .bahanbaku-card, .tantangan-item, .rekomendasi-card {
+    animation: fadeInUp 0.4s ease forwards;
 }
 
-.bahanbaku-card:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-}
+.menu-item:nth-child(1) { animation-delay: 0.05s; }
+.menu-item:nth-child(2) { animation-delay: 0.1s; }
+.menu-item:nth-child(3) { animation-delay: 0.15s; }
+.menu-item:nth-child(4) { animation-delay: 0.2s; }
 
-.bahanbaku-header {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    margin-bottom: 12px;
-    flex-wrap: wrap;
-}
-
-.bahanbaku-icon {
-    font-size: 24px;
-}
-
-.trend-badge {
-    padding: 4px 12px;
-    border-radius: 20px;
-    font-size: 11px;
-    color: white;
-    margin-left: auto;
-}
-
-.bahanbaku-price {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 15px;
-    padding-bottom: 12px;
-    border-bottom: 1px solid #eee;
-}
-
-.bahanbaku-stock {
-    margin-top: 10px;
-}
-
-.stock-bar {
-    height: 8px;
-    background: #eee;
-    border-radius: 4px;
-    margin: 8px 0;
-    overflow: hidden;
-}
-
-.stock-fill {
-    height: 100%;
-    border-radius: 4px;
-    transition: width 0.3s ease;
-}
-
-.stock-status {
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.stock-status.safe { color: #27ae60; }
-.stock-status.warning { color: #f39c12; }
-.stock-status.danger { color: #e74c3c; }
-
-.update-stock-btn {
-    background: transparent;
-    border: 1px solid var(--border);
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 12px;
-    cursor: pointer;
-    margin-top: 8px;
-    transition: all 0.3s ease;
-}
-
-.update-stock-btn:hover {
-    background: var(--warna-button);
-    border-color: var(--warna-button);
-    color: white;
-}
-
-/* Price Decision Cards */
-.price-decision-card {
-    display: flex;
-    align-items: flex-start;
-    gap: 15px;
-    padding: 15px;
-    margin-bottom: 12px;
-    background: #f9f9f9;
-    border-radius: 12px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid transparent;
-}
-
-.price-decision-card:hover {
-    background: #fef9e8;
-    transform: translateX(5px);
-}
-
-.price-decision-card.active {
-    border-color: var(--warna-button);
-    background: rgba(196, 154, 108, 0.1);
-}
-
-.decision-icon {
-    font-size: 28px;
-}
-
-.decision-content {
-    flex: 1;
-}
-
-.decision-content strong {
-    display: block;
-    margin-bottom: 4px;
-}
-
-.decision-content p {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 8px;
-}
-
-.decision-tag {
-    font-size: 11px;
-    padding: 2px 8px;
-    border-radius: 12px;
-    background: #eee;
-}
-
-.decision-tag.recommended {
-    background: #c49a6c;
-    color: white;
-}
-
-/* Menu Impact Grid */
-.menu-impact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
-}
-
-.menu-impact-card {
-    background: #fef9e8;
-    padding: 15px;
-    border-radius: 12px;
+/* Loading State */
+.loading {
     text-align: center;
+    padding: 2rem;
+    color: #999;
 }
 
-.menu-impact-name {
-    font-weight: bold;
-    margin-bottom: 5px;
+.loading::after {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--warna-button);
+    border-top-color: transparent;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-left: 0.5rem;
+    vertical-align: middle;
 }
 
-.menu-impact-price {
-    font-size: 13px;
-    color: #666;
-    margin-bottom: 8px;
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }
 
-.menu-impact-prices {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    font-size: 12px;
-    flex-wrap: wrap;
+/* Tooltip */
+[data-tooltip] {
+    position: relative;
+    cursor: help;
 }
 
-.menu-impact-prices span {
-    background: white;
-    padding: 2px 8px;
-    border-radius: 12px;
+[data-tooltip]:before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.25rem 0.5rem;
+    background: #2c1810;
+    color: white;
+    font-size: 0.7rem;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    z-index: 100;
 }
 
-/* Rekomendasi Card */
-.rekomendasi-icon {
-    font-size: 36px;
-    margin-bottom: 10px;
+[data-tooltip]:hover:before {
+    opacity: 1;
 }
