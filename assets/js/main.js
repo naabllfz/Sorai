@@ -105,14 +105,14 @@ window.initPageFromURL = initPageFromURL;
 
 function toggleNav() {
     const nav = document.getElementById('nav');
-    const hamburger = document.getElementById('hamburger');
+    const hamburger = document.getElementById('hamburger-menu');
     nav.classList.toggle('open');
     hamburger.classList.toggle('open');
 }
 
 document.addEventListener('click', function (e) {
     const nav = document.getElementById('nav');
-    const hamburger = document.getElementById('hamburger');
+    const hamburger = document.getElementById('hamburger-menu');
     if (!nav || !hamburger) return;
     if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
         nav.classList.remove('open');

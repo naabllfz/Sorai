@@ -150,7 +150,7 @@ function renderMinatProduk() {
     const lowInterest = window.menuData.find(m => m.name === 'Americano');
     
     container.innerHTML = `
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
+        <div class="minat-grid">
             <!-- Best Seller Card -->
             <div style="background: linear-gradient(135deg, #2c1810, #4a2c1a); padding: 25px; border-radius: 20px; color: white;">
                 <h2 style="color: #c49a6c; margin-bottom: 15px;">Best Seller</h2>
@@ -377,7 +377,7 @@ function renderKeputusanHarga() {
     const popularMenus = getMenuForPriceImpact();
     
     container.innerHTML = `
-        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
+        <div class="price-layout">
             <!-- Kolom Kiri: Analisis Kenaikan Bahan Baku -->
             <div style="background: var(--white); border-radius: 16px; padding: 20px;">
                 <h3 style="margin-bottom: 16px;">Analisis Kenaikan Bahan Baku</h3>
@@ -552,7 +552,7 @@ function renderRekomendasiTambahan() {
     if (!container) return;
     
     container.innerHTML = `
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; place-items: center;">
+        <div class="rekomendasi-grid">
             <div class="rekomendasi-card">
                 <div class="rekomendasi-icon">📝</div>
                 <h4>Pencatatan Stok Rutin</h4>
