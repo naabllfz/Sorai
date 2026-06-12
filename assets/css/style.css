@@ -101,86 +101,6 @@ nav {
     padding-bottom: 80px;
 }
 
-
-section {
-    margin-top: 80px;
-    margin-bottom: 80px;
-}
-
-.section-header {
-    text-align: center;
-    margin-bottom: 50px;
-}
-
-.section-header h2 {
-    font-size: 36px;
-    margin-bottom: 10px;
-    position: relative;
-    display: inline-block;
-}
-
-.section-header p {
-    color: var(--warna-button);
-    font-size: 16px;
-}
-
-.button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    background-color: transparent;
-    color: var(--warna-button);
-    padding: 14px 32px;
-    text-decoration: none;
-    font-family: 'Poppins', sans-serif;
-    font-weight: 500;
-    border: 1px solid var(--warna-button);
-    border-radius: var(--radius-button);
-    cursor: pointer;
-    transition: all 0.5s ease;
-    font-size: 15px;
-}
-
-.button:hover {
-    background-color: var(--warna-button);
-    color: var(--white);
-    transform: translateY(-1px);
-}
-
-.card {
-    background-color: var(--white);
-    border-radius: var(--radius-card);
-    padding: 35px;
-    box-shadow: var(--shadow-soft);
-    position: relative;
-    overflow: hidden;
-}
-
-.card-border {
-    background-color: var(--warna-section);
-    border-color: var(--border);
-}
-
-.badge {
-    display: inline-block;
-    background-color: var(--warna-bg);
-    color: var(--warna-button);
-    padding: 6px 14px;
-    border-radius: 20px;
-    font-size: 12px;
-    font-weight: 600;
-    margin-bottom: 15px;
-    border: 1px solid var(--border);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-}
-
-hr {
-    border:none;
-    height: 0.5px;
-    background-color: #666;
-}
-
 .hero-section {
     display: flex;
     align-items: center;
@@ -267,7 +187,7 @@ hr {
     margin-top: -5px;
 }
 
-.story-text h2 { 
+.story-text h1 { 
     font-size: 40px; 
     margin-bottom: 20px; 
 }
@@ -279,7 +199,90 @@ hr {
     text-align: center;
 }
 
-/* Grid System */
+section {
+    margin-top: 80px;
+    margin-bottom: 80px;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header h1 {
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2 {
+    margin-bottom: 10px;
+    position: relative;
+    display: inline-block;
+}
+
+.section-header p {
+    color: var(--warna-button);
+    font-size: 16px;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    color: var(--warna-button);
+    padding: 14px 32px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    border: 1px solid var(--warna-button);
+    border-radius: var(--radius-button);
+    cursor: pointer;
+    transition: all 0.5s ease;
+    font-size: 15px;
+}
+
+.button:hover {
+    background-color: var(--warna-button);
+    color: var(--white);
+    transform: translateY(-1px);
+}
+
+.card {
+    background-color: var(--white);
+    border-radius: var(--radius-card);
+    padding: 35px;
+    box-shadow: var(--shadow-soft);
+    position: relative;
+    overflow: hidden;
+}
+
+.card-border {
+    background-color: var(--warna-section);
+    border-color: var(--border);
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--warna-bg);
+    color: var(--warna-button);
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin-bottom: 15px;
+    border: 1px solid var(--border);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+hr {
+    border:none;
+    height: 0.5px;
+    background-color: #666;
+}
+
 .grid { 
     display: grid; 
     gap: 30px; 
@@ -289,16 +292,12 @@ hr {
     grid-template-columns: repeat(2, 1fr); 
 }
 
-.grid-3 { 
-    grid-template-columns: repeat(3, 1fr); 
-}
-
-.grid-4 { 
-    grid-template-columns: repeat(4, 1fr); 
-}
-
 .menu-list { 
-    margin-top: 20px; 
+    margin-top: 10px; 
+}
+
+.menu-category {
+    margin-bottom: 2rem;
 }
 
 .menu-category-title { 
@@ -308,32 +307,40 @@ hr {
     padding-bottom: 10px; 
 }
 
-.menu-item { display: flex; 
+.menu-item { 
+    display: flex; 
     justify-content: space-between; 
     align-items: baseline; 
     margin-bottom: 20px; 
+    background: var(--white);
+    padding: 1.25rem;
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    position: relative;
 }
 
-.menu-name { font-family: 'Playfair Display', serif; 
+.menu-name { 
+    font-family: 'Playfair Display', serif; 
     font-size: 20px; 
     font-weight: 600; 
 }
 
 .menu-desc { 
-    font-size: 13px; 
+    font-size: 12px; 
     color: #666; 
     display: block; 
     margin-top: 4px; 
 }
 
 .menu-price { 
-    font-weight: 600; 
+    font-weight: 700; 
     color: var(--warna-button); 
     position: relative; 
+    margin-right: 20px;
 }
 
 .menu-dots { 
-    flex-grow: 1; 
+    flex-grow: 2; 
     border-bottom: 2px dotted var(--border); 
     margin: 0 15px; 
     opacity: 0.5; 
@@ -351,7 +358,7 @@ footer {
 
 .footer-grid {
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1.8fr 1fr 1fr;
     gap: 50px;
     margin-bottom: 50px;
 }
@@ -404,7 +411,7 @@ footer {
 }
 
 /* --- LOKASI --- */
-.session-buttons {
+.sesi-buttons {
     display: flex;
     justify-content: center;
     gap: 15px;
@@ -462,28 +469,18 @@ footer {
     margin-bottom: 40px;
 }
 
-.lokasi-card {
-    background-color: var(--white);
-    border-radius: var(--radius-card);
-    padding: 30px;
-    border: 1px solid rgba(186, 182, 89, 0.3);
-    box-shadow: var(--shadow-soft);
-    display: flex;
-    flex-direction: column;
-    transition: all 0.3s ease;
+.lokasi-card h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: var(--text-main);
 }
+
 
 .lokasi-icon {
     width: 100%;
     height: 180px;
     object-fit: contain;
     margin-bottom: 20px;
-}
-
-.lokasi-card h3 {
-    font-size: 20px;
-    margin-bottom: 10px;
-    color: var(--text-main);
 }
 
 .lokasi-time {
@@ -551,11 +548,6 @@ footer {
     transition: transform 0.3s ease;
 }
 
-.faktor-icon {
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
 .faktor-card h4 {
     font-size: 15px;
     color: var(--warna-button);
@@ -572,19 +564,15 @@ footer {
 }
 
 
-/* ============================================
-   ORDER PAGE - SHOPPING CART STYLES
-   ============================================ */
-
-/* Layout Utama */
-.order-layout {
+/* -- PESAN -- */
+.layout-pesan {
     display: flex;
     gap: 2rem;
     flex-wrap: wrap;
     margin-top: 2rem;
 }
 
-.menu-list-col {
+.menu-col {
     flex: 2;
     min-width: 280px;
 }
@@ -612,64 +600,7 @@ footer {
     padding-bottom: 0.5rem;
 }
 
-/* Daftar Menu Grid */
-.menu-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-    gap: 1.25rem;
-}
-
-.menu-category {
-    margin-bottom: 2rem;
-}
-
-.menu-category h3 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-    color: var(--warna-button);
-    border-left: 3px solid var(--warna-button);
-    padding-left: 0.75rem;
-}
-
-.menu-item {
-    background: var(--white);
-    padding: 1.25rem;
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-soft);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(186, 182, 89, 0.15);
-    position: relative;
-}
-
-.menu-item:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--warna-button);
-}
-
-.menu-item h4 {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.1rem;
-    margin-bottom: 0.25rem;
-    color: var(--text-main);
-}
-
-.menu-desc {
-    font-size: 0.75rem;
-    color: #666;
-    margin: 0.5rem 0;
-    line-height: 1.4;
-}
-
-.menu-price {
-    font-weight: 700;
-    font-size: 1.1rem;
-    color: var(--warna-button);
-    margin: 0.75rem 0;
-}
-
-.btn-add-to-cart {
+.button-tambah {
     background: var(--warna-button);
     color: var(--white);
     border: none;
@@ -682,21 +613,12 @@ footer {
     transition: all 0.3s ease;
 }
 
-.btn-add-to-cart:hover {
+.button-tambah:hover {
     background: #8a8842;
-    transform: scale(1.02);
 }
 
-/* Keranjang Belanja */
-.cart-empty {
-    text-align: center;
+.cart-kosong {
     padding: 2rem 1rem;
-    color: #999;
-}
-
-.cart-empty p:first-child {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
 }
 
 .cart-items {
@@ -752,7 +674,7 @@ footer {
     flex-wrap: wrap;
 }
 
-.cart-qty-btn {
+.cart-button {
     width: 28px;
     height: 28px;
     background: #f0f0f0;
@@ -763,13 +685,8 @@ footer {
     transition: all 0.2s ease;
 }
 
-.cart-qty-btn:hover {
-    background: var(--warna-button);
-    color: white;
-}
-
 .cart-remove {
-    background: #e74c3c;
+    background: var(--warna-button);
     color: white;
     border: none;
     padding: 5px 10px;
@@ -780,7 +697,7 @@ footer {
 }
 
 .cart-remove:hover {
-    background: #c0392b;
+    background: var(--warna-footer);
 }
 
 .cart-item-subtotal {
@@ -795,7 +712,7 @@ footer {
     margin-top: 1rem;
     padding-top: 1rem;
     border-top: 2px solid var(--warna-button);
-    text-align: right;
+    text-align: justify;
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -804,7 +721,6 @@ footer {
     margin: 1rem 0;
 }
 
-/* Form Pemesanan */
 .form-group {
     margin-bottom: 1rem;
 }
@@ -818,7 +734,7 @@ footer {
 }
 
 .form-input {
-    width: 100%;
+    width: 91%;
     padding: 0.75rem 1rem;
     border: 1px solid #ddd;
     border-radius: 12px;
@@ -831,7 +747,6 @@ footer {
 .form-input:focus {
     outline: none;
     border-color: var(--warna-button);
-    box-shadow: 0 0 0 3px rgba(196, 154, 108, 0.2);
 }
 
 select.form-input {
@@ -848,18 +763,7 @@ textarea.form-input {
     min-height: 80px;
 }
 
-.btn-order {
-    width: 100%;
-    margin-top: 1rem;
-    padding: 0.875rem;
-    font-size: 1rem;
-}
-
-/* ============================================
-   INSIGHT PAGE - BUSINESS INTELLIGENCE STYLES
-   ============================================ */
-
-/* Card Umum Insight */
+/* -- INSIGHT -- */
 .insight-card {
     background: var(--white);
     border-radius: var(--radius-card);
@@ -868,6 +772,7 @@ textarea.form-input {
     box-shadow: var(--shadow-soft);
     transition: all 0.3s ease;
     border: 1px solid rgba(186, 182, 89, 0.1);
+    border-left: 4px solid var(--warna-button);
 }
 
 .insight-card:hover {
@@ -879,17 +784,14 @@ textarea.form-input {
     font-size: 1.5rem;
     margin-bottom: 1.25rem;
     color: var(--text-main);
-    display: flex;
-    align-items: center;
+    text-align: center;
     gap: 0.5rem;
 }
 
 .insight-card.highlight {
-    background: linear-gradient(135deg, var(--white), rgba(196, 154, 108, 0.05));
     border-left: 4px solid var(--warna-button);
 }
 
-/* Ringkasan Cepat (4 Card) */
 .insight-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -900,7 +802,6 @@ textarea.form-input {
 .stat-card {
     text-align: center;
     padding: 1.5rem;
-    background: linear-gradient(135deg, #2c1810, #4a2c1a);
     border-radius: 20px;
     color: white;
     transition: all 0.3s ease;
@@ -910,10 +811,6 @@ textarea.form-input {
     transform: translateY(-5px);
 }
 
-.stat-card .stat-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
 
 .stat-card .stat-value {
     font-size: 2rem;
@@ -954,10 +851,6 @@ textarea.form-input {
     gap: 0.75rem;
     margin-bottom: 0.75rem;
     flex-wrap: wrap;
-}
-
-.tantangan-icon {
-    font-size: 1.5rem;
 }
 
 .tantangan-item strong {
@@ -1078,11 +971,6 @@ textarea.form-input {
     box-shadow: var(--shadow-hover);
 }
 
-.insight-stat .stat-icon {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-}
-
 .insight-stat .stat-value {
     font-size: 2rem;
     font-weight: bold;
@@ -1128,10 +1016,6 @@ textarea.form-input {
     gap: 0.75rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
-}
-
-.bahanbaku-icon {
-    font-size: 1.3rem;
 }
 
 .bahanbaku-header strong {
@@ -1251,10 +1135,6 @@ textarea.form-input {
     background: rgba(196, 154, 108, 0.1);
 }
 
-.decision-icon {
-    font-size: 1.5rem;
-}
-
 .decision-content {
     flex: 1;
 }
@@ -1353,11 +1233,6 @@ textarea.form-input {
     border-color: var(--warna-button);
 }
 
-.rekomendasi-icon {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-}
-
 .rekomendasi-card h4 {
     font-family: 'Playfair Display', serif;
     margin-bottom: 0.5rem;
@@ -1415,181 +1290,4 @@ textarea.form-input {
     background: var(--warna-button);
     border-color: var(--warna-button);
     color: white;
-}
-
-/* RESPONSIVE INSIGHT & ORDER */
-
-@media (max-width: 992px) {
-    .order-layout {
-        flex-direction: column;
-    }
-    
-    .cart-col {
-        position: static;
-        top: auto;
-    }
-    
-    .minat-grid {
-        grid-template-columns: 1fr;
-        gap: 1.5rem;
-    }
-    
-    .price-decision-container {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-    
-    .insight-stats {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .menu-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .cart-col {
-        min-width: auto;
-    }
-    
-    .bahanbaku-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .tantangan-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .menu-impact-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .insight-stats {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .insight-card {
-        padding: 1.25rem;
-    }
-    
-    .insight-card h2 {
-        font-size: 1.25rem;
-    }
-}
-
-@media (max-width: 480px) {
-    .menu-impact-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .insight-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .cart-item {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-    
-    .cart-item-subtotal {
-        text-align: left;
-        width: 100%;
-    }
-    
-    .cart-item-actions {
-        width: 100%;
-        justify-content: space-between;
-    }
-    
-    .filter-buttons {
-        justify-content: center;
-    }
-    
-    .price-decision-card {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    
-    .decision-icon {
-        font-size: 2rem;
-    }
-}
-
-/* ============================================
-   ANIMATIONS
-   ============================================ */
-
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
-.menu-item, .bahanbaku-card, .tantangan-item, .rekomendasi-card {
-    animation: fadeInUp 0.4s ease forwards;
-}
-
-.menu-item:nth-child(1) { animation-delay: 0.05s; }
-.menu-item:nth-child(2) { animation-delay: 0.1s; }
-.menu-item:nth-child(3) { animation-delay: 0.15s; }
-.menu-item:nth-child(4) { animation-delay: 0.2s; }
-
-/* Loading State */
-.loading {
-    text-align: center;
-    padding: 2rem;
-    color: #999;
-}
-
-.loading::after {
-    content: '';
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--warna-button);
-    border-top-color: transparent;
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    margin-left: 0.5rem;
-    vertical-align: middle;
-}
-
-@keyframes spin {
-    to { transform: rotate(360deg); }
-}
-
-/* Tooltip */
-[data-tooltip] {
-    position: relative;
-    cursor: help;
-}
-
-[data-tooltip]:before {
-    content: attr(data-tooltip);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 0.25rem 0.5rem;
-    background: #2c1810;
-    color: white;
-    font-size: 0.7rem;
-    border-radius: 4px;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s;
-    z-index: 100;
-}
-
-[data-tooltip]:hover:before {
-    opacity: 1;
 }

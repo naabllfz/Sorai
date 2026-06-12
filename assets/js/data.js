@@ -48,17 +48,18 @@ const challengesData = [
 
 // DATA FAKTOR PENJUALAN
 const faktorSiangData = [
-    { name: "Lokasi", icon: "📍", desc: "Titik jual di dekat sekolah & kampus meningkatkan kunjungan secara konsisten." },
-    { name: "Cuaca", icon: "☀️", desc: "Cuaca panas siang hari mendorong permintaan minuman dingin lebih tinggi." },
-    { name: "Harga", icon: "💰", desc: "Rentang harga Rp 10–15 ribu sangat cocok untuk segmen pelajar dan mahasiswa." },
-    { name: "Kompetitor", icon: "⚔️", desc: "Persaingan di sekitar kawasan kampus semakin ketat dari usaha kopi sejenis." }
+    { name: "Lokasi", desc: "Titik jual di dekat sekolah & kampus meningkatkan kunjungan secara konsisten." },
+    { name: "Cuaca", desc: "Cuaca panas siang hari mendorong permintaan minuman dingin lebih tinggi." },
+    { name: "Harga", desc: "Rentang harga Rp 10–15 ribu sangat cocok untuk segmen pelajar dan mahasiswa." },
+    { name: "Kompetitor", desc: "Persaingan di sekitar kawasan kampus semakin ketat dari usaha kopi sejenis." }
 ];
 
 const faktorMalamData = [
-    { name: "Cuaca", icon: "🌧️", desc: "Hujan malam hari secara langsung menurunkan jumlah pengunjung dan penjualan." },
-    { name: "Regulasi", icon: "📋", desc: "Perizinan lokasi berjualan menjadi kendala tersendiri di beberapa titik area kota." },
-    { name: "Kompetitor", icon: "⚔️", desc: "Usaha kopi serupa semakin banyak bermunculan di area yang sama pada malam hari." },
-    { name: "Lokasi", icon: "📍", desc: "Konsistensi lokasi sulit dijaga karena bersifat keliling tanpa titik tetap." }
+    { name: "Lokasi", desc: "Konsistensi lokasi sulit dijaga karena bersifat keliling tanpa titik tetap." },
+    { name: "Cuaca", desc: "Hujan malam hari secara langsung menurunkan jumlah pengunjung dan penjualan." },
+    { name: "Regulasi", desc: "Perizinan lokasi berjualan menjadi kendala tersendiri di beberapa titik area kota." },
+    { name: "Kompetitor", desc: "Usaha kopi serupa semakin banyak bermunculan di area yang sama pada malam hari." }
+
 ];
 
 // Export ke global

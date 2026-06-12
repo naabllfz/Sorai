@@ -63,7 +63,6 @@ function renderFaktorSiang() {
     window.faktorSiangData.forEach(f => {
         html += `
             <div class="faktor-card">
-                <div class="faktor-icon">${f.icon}</div>
                 <h4>${f.name}</h4>
                 <p>${f.desc}</p>
             </div>
@@ -82,7 +81,6 @@ function renderFaktorMalam() {
     window.faktorMalamData.forEach(f => {
         html += `
             <div class="faktor-card">
-                <div class="faktor-icon">${f.icon}</div>
                 <h4>${f.name}</h4>
                 <p>${f.desc}</p>
             </div>

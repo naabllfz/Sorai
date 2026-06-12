@@ -103,7 +103,6 @@ function renderTantangan() {
     const challengesWithImpact = window.challengesData.map((challenge, index) => ({
         ...challenge,
         impact: [5, 4, 5, 4, 5, 4][index],
-        icon: ['📍', '📋', '🥛', '💹', '🌧️', '⚔️'][index]
     }));
     
     let html = '<div class="tantangan-grid">';
@@ -112,7 +111,6 @@ function renderTantangan() {
         html += `
             <div class="tantangan-item">
                 <div class="tantangan-header">
-                    <span class="tantangan-icon">${challenge.icon}</span>
                     <strong>${challenge.title}</strong>
                     <span class="impact-badge" style="background: ${getImpactColor(challenge.impact)}">
                         Dampak ${'⭐'.repeat(challenge.impact)}${'☆'.repeat(5 - challenge.impact)}
@@ -155,8 +153,7 @@ function renderMinatProduk() {
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px;">
             <!-- Best Seller Card -->
             <div style="background: linear-gradient(135deg, #2c1810, #4a2c1a); padding: 25px; border-radius: 20px; color: white;">
-                <div style="font-size: 48px; margin-bottom: 10px;">🏆</div>
-                <h3 style="color: #c49a6c; margin-bottom: 15px;">Best Seller</h3>
+                <h2 style="color: #c49a6c; margin-bottom: 15px;">Best Seller</h2>
                 ${bestSellers.map(bs => `
                     <div style="background: rgba(255,255,255,0.1); border-radius: 12px; padding: 15px; margin-bottom: 15px;">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
@@ -166,7 +163,7 @@ function renderMinatProduk() {
                             </div>
                             <div style="text-align: right;">
                                 <div style="font-size: 18px; color: #c49a6c;">Rp ${bs.price.toLocaleString('id-ID')}</div>
-                                <div style="font-size: 12px;">⭐ Minat: ${bs.minat}%</div>
+                                <div style="font-size: 12px;">Minat: ${bs.minat}%</div>
                             </div>
                         </div>
                         <div class="popularity-bar" style="margin-top: 10px;">
@@ -179,15 +176,14 @@ function renderMinatProduk() {
             <!-- Kurang Diminati -->
             <div>
                 <div style="background: rgba(231, 76, 60, 0.1); border-radius: 20px; padding: 25px; margin-bottom: 20px;">
-                    <div style="font-size: 36px; margin-bottom: 10px;">⚠️</div>
-                    <h3 style="color: #e74c3c; margin-bottom: 15px;">Kurang Diminati</h3>
+                    <h2 style="color: #e74c3c; margin-bottom: 15px;">Kurang Diminati</h2>
                     <div style="background: white; border-radius: 12px; padding: 15px;">
                         <strong>${lowInterest?.name || 'Americano'}</strong>
                         <div style="font-size: 13px; color: #666; margin: 5px 0;">${lowInterest?.category || 'Kopi Kuat'} - Rp ${(lowInterest?.price || 10000).toLocaleString('id-ID')}</div>
                         <div class="popularity-bar" style="margin-top: 10px;">
                             <div class="popularity-fill" style="width: ${lowInterest?.minat || 20}%; background: #e74c3c;"></div>
                         </div>
-                        <p style="margin-top: 10px; font-size: 13px;">📊 Hanya ${lowInterest?.minat || 20}% tingkat minat. Karakter pahit kurang disukai pelanggan.</p>
+                        <p style="margin-top: 10px; font-size: 13px;">Hanya ${lowInterest?.minat || 20}% tingkat minat. Karakter pahit kurang disukai pelanggan.</p>
                     </div>
                 </div>
             </div>
@@ -212,19 +208,16 @@ function renderInsightText() {
     container.innerHTML = `
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
             <div class="insight-stat">
-                <div class="stat-icon">🎯</div>
                 <div class="stat-value">${matcha?.minat || 100}%</div>
                 <div class="stat-label">Penjualan dari Matcha</div>
                 <div class="stat-desc">Matcha mendominasi penjualan non-coffee</div>
             </div>
             <div class="insight-stat">
-                <div class="stat-icon">☕</div>
                 <div class="stat-value">${butterscotch?.minat || 80}%</div>
                 <div class="stat-label">Penjualan dari Butterscotch</div>
                 <div class="stat-desc">Best seller di kategori coffee</div>
             </div>
             <div class="insight-stat">
-                <div class="stat-icon">📉</div>
                 <div class="stat-value">${americano?.minat || 20}%</div>
                 <div class="stat-label">Penjualan Americano</div>
                 <div class="stat-desc">Kurang diminati karena rasa pahit</div>
@@ -232,10 +225,10 @@ function renderInsightText() {
         </div>
         
         <div style="margin-top: 30px; padding: 20px; background: rgba(196, 154, 108, 0.1); border-radius: 16px;">
-            <h4 style="color: #c49a6c; margin-bottom: 10px;">💡 Insight Utama dari Wawancara Owner</h4>
-            <p>Minuman non-coffee seperti <strong>Matcha</strong> memiliki permintaan lebih tinggi (${matcha?.minat || 100}%) dibandingkan Americano (${americano?.minat || 20}%). Hal ini menunjukkan preferensi pelanggan Sorai yang lebih menyukai minuman dengan rasa ringan, manis, dan tidak terlalu pahit.</p>
-            <p style="margin-top: 10px;">Meskipun <strong>Butterscotch</strong> adalah kopi, popularitasnya tetap tinggi (${butterscotch?.minat || 80}%) karena profil rasa yang manis dan familiar — berbeda dengan Americano yang memiliki karakter pahit kuat tanpa pemanis tambahan.</p>
-            <p style="margin-top: 10px;">Temuan ini menjadi sinyal penting bagi pengembangan menu ke depan: pelanggan Sorai cenderung menyukai minuman yang memiliki keseimbangan antara rasa manis, creamy, dan aroma yang kuat.</p>
+            <h3 style="color: #c49a6c; margin-bottom: 10px;">Insight Utama dari Wawancara Owner</h3>
+            <p>Minuman non-coffee seperti Matcha memiliki permintaan lebih tinggi (${matcha?.minat || 100}%) dibandingkan Americano (${americano?.minat || 20}%). Hal ini menunjukkan preferensi pelanggan Sorai yang lebih menyukai minuman dengan rasa ringan, manis, dan tidak terlalu pahit.</p>
+            <p style="margin-top: 10px;">Meskipun Butterscotchadalah kopi, popularitasnya tetap tinggi (${butterscotch?.minat || 80}%) karena profil rasa yang manis dan familiar — berbeda dengan Americano yang memiliki karakter pahit kuat tanpa pemanis tambahan.</p>
+            <p style="margin-top: 10px;">Temuan ini menjadi sinyal penting bagi pengembangan menu ke depan: pelanggan .Sorai cenderung menyukai minuman yang memiliki keseimbangan antara rasa manis, creamy, dan aroma yang kuat.</p>
         </div>
     `;
 }
@@ -275,18 +268,15 @@ function renderMonitoringBahanBaku() {
     container.innerHTML = `
         <div style="margin-bottom: 24px;">
             <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
-                <div style="background: linear-gradient(135deg, #2c1810, #4a2c1a); padding: 15px; border-radius: 16px; color: white; text-align: center;">
-                    <div style="font-size: 28px;">📊</div>
+                <div style="background: var(--warna-button); padding: 15px; border-radius: 16px; color: white; text-align: center;">
                     <div style="font-size: 24px; font-weight: bold;">${Object.keys(inventoryData).length}</div>
                     <div style="font-size: 12px;">Jenis Bahan Baku</div>
                 </div>
-                <div style="background: linear-gradient(135deg, #2c1810, #4a2c1a); padding: 15px; border-radius: 16px; color: white; text-align: center;">
-                    <div style="font-size: 28px;">⚠️</div>
+                <div style="background: var(--warna-button); padding: 15px; border-radius: 16px; color: white; text-align: center;">
                     <div style="font-size: 24px; font-weight: bold;">${bahanWithIncrease.length}</div>
                     <div style="font-size: 12px;">Bahan dengan Kenaikan Harga</div>
                 </div>
-                <div style="background: linear-gradient(135deg, #2c1810, #4a2c1a); padding: 15px; border-radius: 16px; color: white; text-align: center;">
-                    <div style="font-size: 28px;">💰</div>
+                <div style="background: var(--warna-button); padding: 15px; border-radius: 16px; color: white; text-align: center;">
                     <div style="font-size: 24px; font-weight: bold;">Rp ${totalCostIncrease.toLocaleString('id-ID')}</div>
                     <div style="font-size: 12px;">Total Kenaikan Biaya</div>
                 </div>
@@ -298,7 +288,7 @@ function renderMonitoringBahanBaku() {
                 const trendIcon = bahan.trend === 'naik' ? '📈' : (bahan.trend === 'turun' ? '📉' : '➡️');
                 const trendColor = bahan.trend === 'naik' ? '#e74c3c' : (bahan.trend === 'turun' ? '#27ae60' : '#f39c12');
                 const stockStatus = bahan.stock <= bahan.minStock ? 'danger' : (bahan.stock <= bahan.minStock * 1.5 ? 'warning' : 'safe');
-                const stockText = stockStatus === 'danger' ? '⚠️ Stok Menipis!' : (stockStatus === 'warning' ? '⚡ Stok Terbatas' : '✅ Stok Aman');
+                const stockText = stockStatus === 'danger' ? 'Stok Menipis!' : (stockStatus === 'warning' ? 'Stok Terbatas' : 'Stok Aman');
                 
                 return `
                     <div class="bahanbaku-card">
@@ -319,13 +309,13 @@ function renderMonitoringBahanBaku() {
                         </div>
                         <div class="bahanbaku-stock">
                             <div style="display: flex; justify-content: space-between;">
-                                <span>📦 Stok: ${bahan.stock} ${bahan.unit}</span>
+                                <span>Stok: ${bahan.stock} ${bahan.unit}</span>
                                 <span class="stock-status ${stockStatus}">${stockText}</span>
                             </div>
                             <div class="stock-bar">
                                 <div class="stock-fill" style="width: ${Math.min(100, (bahan.stock / (bahan.minStock * 3)) * 100)}%; background: ${stockStatus === 'danger' ? '#e74c3c' : (stockStatus === 'warning' ? '#f39c12' : '#27ae60')}"></div>
                             </div>
-                            <button class="update-stock-btn" onclick="updateStock('${key}')">✏️ Update Stok</button>
+                            <button class="update-stock-btn" onclick="updateStock('${key}')">Update Stok</button>
                         </div>
                     </div>
                 `;
@@ -333,7 +323,7 @@ function renderMonitoringBahanBaku() {
         </div>
         
         <div class="insight-warning" style="margin-top: 24px; padding: 16px; background: rgba(231, 76, 60, 0.1); border-radius: 12px; border-left: 4px solid #e74c3c;">
-            <strong>⚠️ Peringatan Stok:</strong> 
+            <strong>Peringatan Stok:</strong> 
             ${Object.values(inventoryData).filter(b => b.stock <= b.minStock).length > 0 
                 ? `Ada ${Object.values(inventoryData).filter(b => b.stock <= b.minStock).length} bahan yang stoknya menipis! Segera lakukan pemesanan.`
                 : 'Semua stok dalam kondisi aman.'}
@@ -390,7 +380,7 @@ function renderKeputusanHarga() {
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px;">
             <!-- Kolom Kiri: Analisis Kenaikan Bahan Baku -->
             <div style="background: var(--white); border-radius: 16px; padding: 20px;">
-                <h3 style="margin-bottom: 16px;">📈 Analisis Kenaikan Bahan Baku</h3>
+                <h3 style="margin-bottom: 16px;">Analisis Kenaikan Bahan Baku</h3>
                 <div style="margin-bottom: 16px;">
                     <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
                         <span>Total kenaikan biaya:</span>
@@ -407,7 +397,7 @@ function renderKeputusanHarga() {
                 </div>
                 
                 <div style="background: #fef9e8; padding: 16px; border-radius: 12px; margin-top: 16px;">
-                    <div style="font-weight: bold; margin-bottom: 8px;">💡 Faktor yang Mempengaruhi:</div>
+                    <div style="font-weight: bold; margin-bottom: 8px;">Faktor yang Mempengaruhi:</div>
                     <ul style="margin-left: 20px; font-size: 13px;">
                         <li>Kenaikan harga susu nasional sebesar 12%</li>
                         <li>Kenaikan harga gula aren karena cuaca</li>
@@ -418,49 +408,45 @@ function renderKeputusanHarga() {
             
             <!-- Kolom Kanan: Rekomendasi Keputusan Harga -->
             <div style="background: var(--white); border-radius: 16px; padding: 20px;">
-                <h3 style="margin-bottom: 16px;">🎯 Rekomendasi Keputusan Harga</h3>
+                <h3 style="margin-bottom: 16px;">Rekomendasi Keputusan Harga</h3>
                 
                 <div class="price-decision-card ${rekomendasiHarga === 'tetap' ? 'active' : ''}" onclick="setPriceDecision('tetap')">
-                    <div class="decision-icon">✅</div>
                     <div class="decision-content">
                         <strong>Pertahankan Harga</strong>
                         <p>Tidak ada kenaikan harga. Margin akan menurun tapi pelanggan tetap loyal.</p>
-                        <span class="decision-tag ${rekomendasiHarga === 'tetap' ? 'recommended' : ''}">${rekomendasiHarga === 'tetap' ? '🌟 Rekomendasi' : ''}</span>
+                        <span class="decision-tag ${rekomendasiHarga === 'tetap' ? 'recommended' : ''}">${rekomendasiHarga === 'tetap' ? 'Rekomendasi' : ''}</span>
                     </div>
                 </div>
                 
                 <div class="price-decision-card ${rekomendasiHarga === 'naik-5' ? 'active' : ''}" onclick="setPriceDecision('naik-5')">
-                    <div class="decision-icon">📈</div>
                     <div class="decision-content">
                         <strong>Naikkan Harga 5%</strong>
                         <p>Kenaikan kecil (Rp 500-1000 per menu). Pelanggan tidak akan terlalu terasa.</p>
-                        <span class="decision-tag ${rekomendasiHarga === 'naik-5' ? 'recommended' : ''}">${rekomendasiHarga === 'naik-5' ? '🌟 Rekomendasi' : ''}</span>
+                        <span class="decision-tag ${rekomendasiHarga === 'naik-5' ? 'recommended' : ''}">${rekomendasiHarga === 'naik-5' ? 'Rekomendasi' : ''}</span>
                     </div>
                 </div>
                 
                 <div class="price-decision-card ${rekomendasiHarga === 'naik-10' ? 'active' : ''}" onclick="setPriceDecision('naik-10')">
-                    <div class="decision-icon">📊</div>
                     <div class="decision-content">
                         <strong>Naikkan Harga 10%</strong>
                         <p>Kenaikan moderat (Rp 1000-1500 per menu). Kompensasi dengan promo bundling.</p>
-                        <span class="decision-tag ${rekomendasiHarga === 'naik-10' ? 'recommended' : ''}">${rekomendasiHarga === 'naik-10' ? '🌟 Rekomendasi' : ''}</span>
+                        <span class="decision-tag ${rekomendasiHarga === 'naik-10' ? 'recommended' : ''}">${rekomendasiHarga === 'naik-10' ? 'Rekomendasi' : ''}</span>
                     </div>
                 </div>
                 
                 <div class="price-decision-card ${rekomendasiHarga === 'naik-15' ? 'active' : ''}" onclick="setPriceDecision('naik-15')">
-                    <div class="decision-icon">⚠️</div>
                     <div class="decision-content">
                         <strong>Naikkan Harga 15%</strong>
                         <p>Kenaikan signifikan (Rp 1500-2000 per menu). Hanya jika terpaksa.</p>
-                        <span class="decision-tag ${rekomendasiHarga === 'naik-15' ? 'recommended' : ''}">${rekomendasiHarga === 'naik-15' ? '🌟 Rekomendasi' : ''}</span>
+                        <span class="decision-tag ${rekomendasiHarga === 'naik-15' ? 'recommended' : ''}">${rekomendasiHarga === 'naik-15' ? 'Rekomendasi' : ''}</span>
                     </div>
                 </div>
                 
                 <div id="price-decision-status" style="margin-top: 16px; padding: 12px; background: rgba(196, 154, 108, 0.15); border-radius: 12px;">
                     ${priceDecision ? 
-                        `<strong>📌 Keputusan saat ini:</strong> ${priceDecision.text}<br>
-                         <span style="font-size: 13px;">Diputuskan pada: ${new Date(priceDecision.timestamp).toLocaleString('id-ID')}</span>` : 
-                        `<span style="color: #666;">ℹ️ Belum ada keputusan. Pilih salah satu opsi di atas.</span>`
+                        `<strong>Keputusan saat ini:</strong> ${priceDecision.text}<br>
+                        <span style="font-size: 13px;">Diputuskan pada: ${new Date(priceDecision.timestamp).toLocaleString('id-ID')}</span>` : 
+                        `<span style="color: #666;">Belum ada keputusan. Pilih salah satu opsi di atas.</span>`
                     }
                 </div>
             </div>
@@ -468,7 +454,7 @@ function renderKeputusanHarga() {
         
         <!-- Dampak pada Menu Populer (LANGSUNG dari window.menuData) -->
         <div style="margin-top: 24px; background: var(--white); border-radius: 16px; padding: 20px;">
-            <h3 style="margin-bottom: 16px;">📊 Dampak Keputusan Harga pada Menu Populer</h3>
+            <h3 style="margin-bottom: 16px;">Dampak Keputusan Harga pada Menu Populer</h3>
             <div class="menu-impact-grid">
                 ${popularMenus.map(menu => {
                     const hargaBaru5 = Math.round(menu.price * 1.05);
@@ -526,7 +512,7 @@ function setPriceDecision(decision) {
     savePriceDecision();
     renderKeputusanHarga();
     
-    alert(`✅ Keputusan disimpan!\n\n${decisionText}\n\n💡 Saran: Terapkan secara bertahap dan komunikasikan ke pelanggan.`);
+    alert(`Keputusan disimpan!\n\n${decisionText}\n\nSaran: Terapkan secara bertahap dan komunikasikan ke pelanggan.`);
 }
 
 // Show full insight
@@ -541,22 +527,22 @@ function showFullInsight() {
     const americano = window.menuData.find(m => m.name === 'Americano');
     
     alert(
-        "📊 ANALISIS LENGKAP SORAI COFFEE\n\n" +
-        "✅ BEST SELLER:\n" +
+        "ANALISIS LENGKAP SORAI COFFEE\n\n" +
+        "BEST SELLER:\n" +
         `   • Matcha (Non Coffee) - Rp ${(matcha?.price || 13000).toLocaleString('id-ID')} | ${matcha?.minat || 100}% penjualan\n` +
         `   • Butterscotch (Coffee) - Rp ${(butterscotch?.price || 15000).toLocaleString('id-ID')} | ${butterscotch?.minat || 80}% penjualan\n\n` +
-        "⚠️ KURANG MINAT:\n" +
+        "KURANG MINAT:\n" +
         `   • Americano - ${americano?.minat || 20}% penjualan (karakter pahit)\n\n` +
-        "🔥 REKOMENDASI BISNIS:\n" +
+        "REKOMENDASI BISNIS:\n" +
         "   • Promosikan Matcha & Butterscotch\n" +
         "   • Evaluasi Americano (bundling/hapus)\n" +
         "   • Kembangkan varian baru (Matcha Float, Butterscotch Cream)\n\n" +
-        "📍 LOKASI STRATEGIS:\n" +
+        "LOKASI STRATEGIS:\n" +
         "   • Siang: Depan SMADA (10-15) & Taman UNTAD (10-17)\n" +
         "   • Malam: Sekitaran Kantor Wali Kota (14.30-00.00)\n\n" +
-        "📞 KONTAK: 0851-4553-3880\n" +
-        "📸 IG: @kopisorai_palu\n\n" +
-        "💡 Sumber: Wawancara langsung dengan owner"
+        "KONTAK: 0851-4553-3880\n" +
+        "IG: @kopisorai_palu\n\n" +
+        "Sumber: Wawancara langsung dengan owner"
     );
 }
 
@@ -566,37 +552,37 @@ function renderRekomendasiTambahan() {
     if (!container) return;
     
     container.innerHTML = `
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; place-items: center;">
             <div class="rekomendasi-card">
                 <div class="rekomendasi-icon">📝</div>
                 <h4>Pencatatan Stok Rutin</h4>
                 <p>Catat stok bahan baku setiap hari untuk mengantisipasi kelangkaan.</p>
-                <button class="action-btn" onclick="showActionPlan('Pencatatan Stok Rutin')">Terapkan →</button>
+                <button class="action-btn" onclick="showActionPlan('Pencatatan Stok Rutin')">Terapkan</button>
             </div>
             <div class="rekomendasi-card">
                 <div class="rekomendasi-icon">🔍</div>
                 <h4>Cari Supplier Alternatif</h4>
                 <p>Cari supplier dengan harga lebih kompetitif untuk mengurangi ketergantungan.</p>
-                <button class="action-btn" onclick="showActionPlan('Cari Supplier Alternatif')">Terapkan →</button>
+                <button class="action-btn" onclick="showActionPlan('Cari Supplier Alternatif')">Terapkan</button>
             </div>
             <div class="rekomendasi-card">
                 <div class="rekomendasi-icon">📦</div>
                 <h4>Paket Bundling</h4>
                 <p>Buat paket bundling untuk meningkatkan nilai transaksi tanpa menaikkan harga satuan.</p>
-                <button class="action-btn" onclick="showActionPlan('Paket Bundling')">Terapkan →</button>
+                <button class="action-btn" onclick="showActionPlan('Paket Bundling')">Terapkan</button>
             </div>
             <div class="rekomendasi-card">
                 <div class="rekomendasi-icon">💬</div>
                 <h4>Komunikasi ke Pelanggan</h4>
                 <p>Jika terpaksa menaikkan harga, komunikasikan alasannya ke pelanggan setia.</p>
-                <button class="action-btn" onclick="showActionPlan('Komunikasi ke Pelanggan')">Terapkan →</button>
+                <button class="action-btn" onclick="showActionPlan('Komunikasi ke Pelanggan')">Terapkan</button>
             </div>
         </div>
     `;
 }
 
 function showActionPlan(title) {
-    alert(`📋 RENCANA AKSI: ${title}\n\n1️⃣ Identifikasi kebutuhan spesifik\n2️⃣ Buat timeline pelaksanaan (1-2 minggu)\n3️⃣ Alokasikan sumber daya\n4️⃣ Evaluasi hasil secara berkala\n\n📞 Butuh bantuan? Hubungi pendamping UMKM!`);
+    alert(`RENCANA AKSI: ${title}\n\n1. Identifikasi kebutuhan spesifik\n2. Buat timeline pelaksanaan (1-2 minggu)\n3. Alokasikan sumber daya\n4. Evaluasi hasil secara berkala`);
 }
 
 // Inisialisasi halaman insight

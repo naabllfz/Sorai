@@ -73,9 +73,11 @@ function renderMenuList() {
                         <span class="menu-desc">${menu.description}</span>
                     </div>
                     <div class="menu-dots"></div>
-                    <div style="display: flex; align-items: center; gap: 15px;">
-                        <span class="menu-price">Rp ${menu.price.toLocaleString('id-ID')}</span>
-                        <button class="btn-add-to-cart" onclick="addToCart(${menu.id})">+ Tambah</button>
+                    <div class="menu-price">
+                        Rp ${menu.price.toLocaleString('id-ID')}
+                    </div>
+                    <div>
+                        <button class="button-tambah" onclick="addToCart(${menu.id})">Tambah</button>
                     </div>
                 </div>
             `;
@@ -110,9 +112,8 @@ function addToCart(menuId) {
     
     // Animasi feedback
     const btn = event.target;
-    btn.textContent = '✓ Ditambahkan';
     setTimeout(() => {
-        btn.textContent = '+ Tambah';
+        btn.textContent = 'Tambah';
     }, 1000);
 }
 
@@ -152,9 +153,9 @@ function clearCart() {
 function renderCart() {
     const cartContainer = document.getElementById('cart-container');
     const cartItems = document.getElementById('cart-items');
-    const cartEmpty = document.getElementById('cart-empty');
+    const cartEmpty = document.getElementById('cart-kosong');
     const cartTotal = document.getElementById('cart-total');
-    const cartCount = document.getElementById('cart-count');
+    const cartCount = document.getElementById('cart-jumlah');
     
     if (!cartContainer) return;
     
@@ -183,9 +184,9 @@ function renderCart() {
                     <div class="cart-item-price">Rp ${item.price.toLocaleString('id-ID')}</div>
                 </div>
                 <div class="cart-item-actions">
-                    <button class="cart-qty-btn" onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                    <button class="cart-button" onclick="updateCartQuantity(${item.id}, ${item.quantity - 1})">-</button>
                     <span>${item.quantity}</span>
-                    <button class="cart-qty-btn" onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                    <button class="cart-button" onclick="updateCartQuantity(${item.id}, ${item.quantity + 1})">+</button>
                     <button class="cart-remove" onclick="removeFromCart(${item.id})">Hapus</button>
                 </div>
                 <div class="cart-item-subtotal">Rp ${subtotal.toLocaleString('id-ID')}</div>
@@ -217,17 +218,17 @@ function submitOrder() {
     
     // Validasi
     if (!nama || !wa || !tanggal || !lokasi) {
-        alert('❌ Mohon lengkapi semua data pemesan!');
+        alert('Mohon lengkapi semua data pemesan!');
         return false;
     }
     
     if (!wa.match(/^08[0-9]{8,12}$/)) {
-        alert('❌ Format nomor WhatsApp tidak valid. Harus diawali 08 dan 10-14 digit.');
+        alert('Format nomor WhatsApp tidak valid. Harus diawali 08 dan 10-14 digit.');
         return false;
     }
     
     if (cart.length === 0) {
-        alert('❌ Keranjang belanja masih kosong! Silakan pilih menu terlebih dahulu.');
+        alert('Keranjang belanja masih kosong! Silakan pilih menu terlebih dahulu.');
         return false;
     }
     
@@ -265,7 +266,7 @@ function submitOrder() {
     localStorage.setItem('sorai_orders', JSON.stringify(orders));
     
     // Tampilkan ringkasan
-    alert(`✅ PESANAN DITERIMA!\n\n📋 Detail Pesanan:\n${orderDetail}\n💰 Total: Rp ${total.toLocaleString('id-ID')}\n\n📍 Pengambilan: ${lokasi}\n📅 Tanggal: ${tglFormatted}\n\n📞 Akan dikonfirmasi ke ${wa}`);
+    alert(`PESANAN DITERIMA!\n\nDetail Pesanan:\n${orderDetail}\nTotal: Rp ${total.toLocaleString('id-ID')}\n\nPengambilan: ${lokasi}\nTanggal: ${tglFormatted}\n\nAkan dikonfirmasi ke ${wa}`);
     
     // Reset keranjang
     cart = [];
