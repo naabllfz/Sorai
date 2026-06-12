@@ -103,19 +103,21 @@ window.showPage = showPage;
 window.getCurrentPageFromURL = getCurrentPageFromURL;
 window.initPageFromURL = initPageFromURL;
 
-function toggleNav() {
-    const nav = document.getElementById('nav');
-    const hamburger = document.getElementById('hamburger-menu');
-    nav.classList.toggle('open');
-    hamburger.classList.toggle('open');
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const menuBar = document.getElementById('menu-bar');
+    const navMenu = document.getElementById('nav');
 
-document.addEventListener('click', function (e) {
-    const nav = document.getElementById('nav');
-    const hamburger = document.getElementById('hamburger-menu');
-    if (!nav || !hamburger) return;
-    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-        nav.classList.remove('open');
-        hamburger.classList.remove('open');
+    if (menuBar && navMenu) {
+        menuBar.addEventListener('click', () => {
+            menuBar.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links li a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuBar.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
     }
 });
