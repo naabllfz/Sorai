@@ -102,3 +102,20 @@ document.addEventListener('DOMContentLoaded', function() {
 window.showPage = showPage;
 window.getCurrentPageFromURL = getCurrentPageFromURL;
 window.initPageFromURL = initPageFromURL;
+
+function toggleNav() {
+    const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('hamburger');
+    nav.classList.toggle('open');
+    hamburger.classList.toggle('open');
+}
+
+document.addEventListener('click', function (e) {
+    const nav = document.getElementById('nav');
+    const hamburger = document.getElementById('hamburger');
+    if (!nav || !hamburger) return;
+    if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+        nav.classList.remove('open');
+        hamburger.classList.remove('open');
+    }
+});
